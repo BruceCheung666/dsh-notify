@@ -1,0 +1,60 @@
+{
+  "name": "@brucecheung666/dsh-notify",
+  "version": "0.1.0",
+  "description": "DeepSeek Harness 插件：审批、提问、回合结果、登录问题与后台任务的系统通知；设置 → 通知 里按事件开关，输入框下方有总开关。",
+  "type": "module",
+  "license": "MIT",
+  "author": "BruceCheung666",
+  "engines": {
+    "dsh": ">=0.2.0-0 <0.3.0-0"
+  },
+  "homepage": "https://github.com/BruceCheung666/dsh-notify#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BruceCheung666/dsh-notify.git"
+  },
+  "bugs": {
+    "url": "https://github.com/BruceCheung666/dsh-notify/issues"
+  },
+  "keywords": [
+    "deepseek-harness",
+    "dsh",
+    "dsh-plugin",
+    "notification",
+    "system-notification",
+    "desktop-notification",
+    "approval",
+    "background-job"
+  ],
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg"
+  },
+  "files": [
+    "index.js",
+    "client.js",
+    "cordis.patch.yml",
+    "locale/*.json",
+    "icon.svg"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "check": "node --check index.js && node --check client.js && node scripts/check-host-style.mjs"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": [
+        "@deepseek-ai/dsh-client-ui-conversation"
+      ]
+    }
+  }
+}

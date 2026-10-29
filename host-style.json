@@ -1,0 +1,82 @@
+{
+  "$comment": "插件从 DSH 宿主复制过来的样式契约（唯一来源）。宿主源码变化时 npm run check 失败，提示同步 client.js。scope=host 相对 deepseek-harness checkout（DSH_HOST_ROOT 可覆盖），scope=repo 相对本清单所在目录（插件包根）；required=false 的文件在参考 checkout 缺失时跳过。",
+  "checks": [
+    {
+      "scope": "host",
+      "file": "packages/client/ui-primitives/src/Switch.module.css",
+      "contains": [
+        "width: 36px;",
+        "height: 20px;",
+        "padding: 2px;",
+        "border: 0;",
+        "border-radius: 999px;",
+        "corner-shape: round;",
+        "background: var(--dsw-alias-border-l3);",
+        "background: var(--dsw-alias-brand-primary);",
+        "cursor: default;",
+        "opacity: 0.5;",
+        "outline: var(--dsw-focus-ring-width) solid",
+        "outline-offset: 2px;",
+        "width: 16px;",
+        "height: 16px;",
+        "background: var(--dsw-alias-label-primary-foreground);",
+        "background: var(--dsw-alias-switch-thumb);",
+        "transform: translateX(16px);"
+      ]
+    },
+    {
+      "scope": "host",
+      "file": "packages/client/ui-settings-general/src/client/DeveloperToolsRow.module.css",
+      "contains": [
+        "justify-content: space-between;",
+        "align-items: center;",
+        "gap: 24px;",
+        "padding: 16px 0;",
+        "border-bottom: 0.5px solid var(--dsw-alias-border-l2);",
+        "font-size: 14px;",
+        "line-height: 20px;",
+        "margin-top: 4px;",
+        "color: var(--dsw-alias-label-secondary);",
+        "font-size: 12px;",
+        "line-height: 18px;"
+      ]
+    },
+    {
+      "scope": "host",
+      "file": "packages/client/ui-theme/src/styles/corner-shape.css",
+      "contains": [
+        "--dsw-corner-shape: superellipse(1.5);",
+        "corner-shape: var(--dsw-corner-shape);"
+      ]
+    },
+    {
+      "scope": "repo",
+      "file": "client.js",
+      "contains": [
+        "width: 36,",
+        "height: 20,",
+        "padding: 2,",
+        "borderRadius: 999,",
+        "background: 'var(--dsw-alias-border-l3)'",
+        "background: 'var(--dsw-alias-brand-primary)'",
+        "background: 'var(--dsw-alias-switch-thumb)'",
+        "background: 'var(--dsw-alias-label-primary-foreground)'",
+        "transform: 'translateX(16px)'",
+        "opacity: 0.5",
+        "gap: 24,",
+        "padding: '16px 0',",
+        "borderBottom: '0.5px solid var(--dsw-alias-border-l2)'",
+        "fontSize: 14,",
+        "lineHeight: '20px'",
+        "marginTop: 4,",
+        "color: 'var(--dsw-alias-label-secondary)'",
+        "fontSize: 12,",
+        "lineHeight: '18px'",
+        "corner-shape:round",
+        ":focus-visible{outline:",
+        "var(--dsw-focus-ring-width",
+        "outline-offset:2px"
+      ]
+    }
+  ]
+}

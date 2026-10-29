@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "System notifications",
+    "description": "System notifications for approvals, questions, turn outcomes, sign-in problems, and background jobs. Pick the events in Settings → Notifications."
+  }
+}

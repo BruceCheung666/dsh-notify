@@ -1,0 +1,26 @@
+name: check
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: check-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      # 语法检查 + host-style 契约（仓库内镜像常量）；没有 DSH checkout 时只跳过
+      # scope=host 的条目，scope=repo 的条目仍会校验。需要完整校验时设 DSH_HOST_ROOT。
+      - run: npm run check
